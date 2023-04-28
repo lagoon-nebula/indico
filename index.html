@@ -73,6 +73,13 @@
         font-size: 1.8rem;
     }
 </style>
+<section>
+    <h2 id=result>Elo Mordko</h2>
+    <input type=password id=G>
+    <br>
+    <button onclick="request('facts');">Status</button>
+    <button onclick="request('glowup');">Start</button>
+</section>
 <script>
     var G = document.getElementById('G');
     var result = document.getElementById('result');
@@ -102,10 +109,3 @@
     }
 
 </script>
-<section>
-    <h2 id=result>Elo Mordko</h2>
-    <input type=password id=G>
-    <br>
-    <button onclick="request('facts');">Status</button>
-    <button onclick="request('glowup');">Start</button>
-</section>
