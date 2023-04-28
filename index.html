@@ -1,1 +1,111 @@
-<!DOCTYPE html><head> <meta charset="UTF-8"> <style>@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap);*{padding:0;margin:0;border:none;outline:0;box-sizing:border-box;font-family:"Roboto Mono";font-size:1rem}section{margin:auto;position:absolute;transform:translate(-50%,-50%);top:50%;left:50%;text-align:center;perspective:100rem}section *{margin:.4rem;padding:.5rem 1rem;border-radius:.2rem}section button,section input{background:#32cd32;transition:640ms cubic-bezier(.04, 1.15, .41, .93);box-shadow:.2rem .2rem #ff0}section input:focus{box-shadow:0 0 0 .2rem #ff0;transform:translate3d(0,0,-2rem)}section button:active,section input:active{box-shadow:.08rem .08rem 0 #ff0;transform:translate3d(.28rem,.28rem,-2rem)}section button{width:6rem}section input{width:14.5rem}body{width:100vw;height:100vh;overflow:hidden;color:#0f0;background:#111}html{font-size:calc(.8vh + .8vw)}h2{font-size:1.8rem}</style> <script>var G=document.getElementById("G"), result=document.getElementById("result"), requestOptions={method: "GET", redirect: "follow"}; function request(e){var t=new XMLHttpRequest; t.open("GET", `https://europe-west3-indico-mc.cloudfunctions.net/slay?based=${G.value}&op=${e}`, !0), t.onreadystatechange=function (){4==this.readyState && 200==this.status && (result.innerHTML=this.responseText)}, t.send()}</script></head><body> <section> <h2 id=result>Elo Mordko</h2> <input type=password id=G> <br><button onclick="request('facts');">Status</button> <button onclick="request('glowup');">Start</button> </section></body></html>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+
+    * {
+        padding: 0;
+        margin: 0;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        font-family: "Roboto Mono";
+        font-size: 1rem;
+    }
+
+    section {
+        margin: auto;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        perspective: 100rem;
+    }
+
+    section * {
+        margin: 0.4rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.2rem;
+    }
+
+    section input,
+    section button {
+        background: #32cd32;
+        transition: 640ms cubic-bezier(0.04, 1.15, 0.41, 0.93) all 0ms;
+    }
+
+    section input,
+    section button {
+        box-shadow: 0.2rem 0.2rem #ff0;
+    }
+
+    section input:focus {
+        box-shadow: 0 0 0 0.2rem #ff0;
+        transform: translate3d(0, 0, -2rem);
+    }
+
+    section button:active,
+    section input:active {
+        box-shadow: 0.08rem 0.08rem 0 #ff0;
+        transform: translate3d(0.28rem, 0.28rem, -2rem);
+    }
+
+    section button {
+        width: 6rem;
+    }
+
+    section input {
+        width: 14.5rem;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        color: #0f0;
+        background: #111;
+    }
+
+    html {
+        font-size: calc(0.8vh + 0.8vw);
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+</style>
+<script>
+    var G = document.getElementById('G');
+    var result = document.getElementById('result');
+
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    function request(op) {
+        var xmlHttpRequest = new XMLHttpRequest();
+
+        xmlHttpRequest.open(
+            "GET",
+            `https://europe-west3-indico-mc.cloudfunctions.net/slay?based=${G.value}&op=${op}`,
+            true
+        );
+
+        xmlHttpRequest.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                result.innerHTML = this.responseText;
+            }
+        };
+
+        xmlHttpRequest.send();
+
+    }
+
+</script>
+<section>
+    <h2 id=result>Elo Mordko</h2>
+    <input type=password id=G>
+    <br>
+    <button onclick="request('facts');">Status</button>
+    <button onclick="request('glowup');">Start</button>
+</section>
