@@ -75,18 +75,17 @@
 </style>
 <section>
     <h2 id=result>Elo Mordko</h2>
-    <input type=password id=G>
+    <input type="password" id="G" placeholder="Hasło">
     <br>
-    <button onclick="request('facts');">Status</button>
-    <button onclick="request('glowup');">Start</button>
+    <button onclick="request();">Chce grać</button>
 </section>
 <script>
-    function request(op) {
+    function request() {
         var xmlHttpRequest = new XMLHttpRequest();
 
         xmlHttpRequest.open(
             "GET",
-            `https://europe-west3-indico-mc.cloudfunctions.net/slay?based=${document.getElementById('G').value}&op=${op}`,
+            `https://europe-west3-indico-mc.cloudfunctions.net/slay?based=${document.getElementById('G').value}`,
             true
         );
 
