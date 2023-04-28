@@ -81,31 +81,22 @@
     <button onclick="request('glowup');">Start</button>
 </section>
 <script>
-    var G = document.getElementById('G');
-    var result = document.getElementById('result');
-
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
-
     function request(op) {
         var xmlHttpRequest = new XMLHttpRequest();
 
         xmlHttpRequest.open(
             "GET",
-            `https://europe-west3-indico-mc.cloudfunctions.net/slay?based=${G.value}&op=${op}`,
+            `https://europe-west3-indico-mc.cloudfunctions.net/slay?based=${document.getElementById('G').value}&op=${op}`,
             true
         );
 
         xmlHttpRequest.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                result.innerHTML = this.responseText;
+                document.getElementById('result').innerHTML = this.responseText;
             }
         };
 
         xmlHttpRequest.send();
 
     }
-
 </script>
